@@ -54,6 +54,21 @@ const applyTheme = (theme) => {
     );
   };
   
+  // Function to update "Show more" button text and state
+const updateShowMoreButton = () => {
+    const remainingBooks = matches.length - page * BOOKS_PER_PAGE;
+    const button = getElement("[data-list-button]");
+    button.innerText = `Show more ${remainingBooks}`;
+    
+    button.disabled = remainingBooks <= 0;
+    button.innerHTML = `
+      <span>Show more</span>
+      <span class="list__remaining">(${
+        remainingBooks > 0 ? remainingBooks : 0
+      })</span>
+    `;
+  };
+  
     starting.appendChild(element)
 }
 
