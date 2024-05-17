@@ -116,6 +116,18 @@ const updateShowMoreButton = () => {
     applyTheme(theme);
     closeOverlay("[data-settings-overlay]");
   });
+
+  getElement("[data-search-form]").addEventListener("submit", (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const filters = Object.fromEntries(formData);
+    matches = applySearchFilters(filters);
+    page = 1;
+    getElement("[data-list-message]").classList.toggle(
+      "list__message_show",
+      matches.length < 1
+    );
+  
   
     starting.appendChild(element)
 }
