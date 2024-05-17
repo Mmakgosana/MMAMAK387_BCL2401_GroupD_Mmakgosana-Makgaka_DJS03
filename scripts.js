@@ -138,6 +138,15 @@ const updateShowMoreButton = () => {
     closeOverlay("[data-search-overlay]");
   });
   
+  getElement("[data-list-button]").addEventListener("click", () => {
+    createBookPreviews(
+      matches.slice(page * BOOKS_PER_PAGE, (page + 1) * BOOKS_PER_PAGE),
+      getElement("[data-list-items]")
+    );
+    page += 1;
+    updateShowMoreButton();
+  });
+  
     starting.appendChild(element)
 }
 
