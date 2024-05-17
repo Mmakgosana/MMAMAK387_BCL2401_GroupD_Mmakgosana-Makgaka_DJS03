@@ -92,6 +92,23 @@ const updateShowMoreButton = () => {
     });
   };
   
+  //Event listeners
+  getElement("[data-search-cancel]").addEventListener("click", () =>
+    closeOverlay("[data-search-overlay]")
+  );
+  getElement("[data-settings-cancel]").addEventListener("click", () =>
+    closeOverlay("[data-settings-overlay]")
+  );
+  getElement("[data-header-search]").addEventListener("click", () =>
+    openOverlay("[data-search-overlay]", "[data-search-title]")
+  );
+  getElement("[data-header-settings]").addEventListener("click", () =>
+    openOverlay("[data-settings-overlay]")
+  );
+  getElement("[data-list-close]").addEventListener("click", () =>
+    closeOverlay("[data-list-active]")
+  );
+  
   
     starting.appendChild(element)
 }
