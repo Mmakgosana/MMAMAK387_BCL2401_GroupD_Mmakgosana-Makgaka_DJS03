@@ -68,6 +68,16 @@ const updateShowMoreButton = () => {
       })</span>
     `;
   };
+ 
+  //Event listener function
+  const closeOverlay = (selector) => {
+    getElement(selector).open = false;
+  };
+  
+  const openOverlay = (selector, focusSelector = null) => {
+    getElement(selector).open = true;
+    if (focusSelector) getElement(focusSelector).focus();
+  };
   
     starting.appendChild(element)
 }
