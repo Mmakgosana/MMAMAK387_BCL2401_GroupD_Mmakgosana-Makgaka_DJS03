@@ -128,6 +128,15 @@ const updateShowMoreButton = () => {
       matches.length < 1
     );
   
+    getElement("[data-list-items]").innerHTML = "";
+    createBookPreviews(
+      matches.slice(0, BOOKS_PER_PAGE),
+      getElement("[data-list-items]")
+    );
+    updateShowMoreButton();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    closeOverlay("[data-search-overlay]");
+  });
   
     starting.appendChild(element)
 }
